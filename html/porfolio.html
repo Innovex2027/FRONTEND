@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rakshita Uday Shetty - Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+    <style>
+        *{
+            font-family:"Instruments  sans serif";
+        }
+        .container{
+            max-width: 900px;
+            margin: auto;
+
+        }
+        header{
+            text-align: center;
+            padding: 40px 40px;
+            background: #f5f3f0;
+            color: black;
+
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header h2{
+            font-weight: 400;
+            letter-spacing: 2px;
+            font-size: 14px;
+ 
+        }
+        section{
+            margin: 0;
+            padding: 0px 150px;
+            background: white;
+        }
+        section h2{
+            margin-top: 30px;
+
+        }
+        section h3{
+            color:#938c6c;
+            
+        }
+        header img{
+            width:120px;
+            height: 160px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+
+        }
+        footer{
+            text-align: center;
+            padding: 20px;
+            background: #d5d5d5;
+            color: black;
+
+        }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header id="header">
+      </header>
+      <section id="about"></section>
+      <section id="experience"></section>
+      <section id="education"></section>
+      <section id="skills"></section>
+      <section id="projects"></section>
+      <footer id="footer"></footer>
+    </div>
+ 
+    <script>
+      const data = {
+        name: "Rakshita Uday Shetty",
+        title: "STUDENT",
+        image:"../img/Rakshita_U.jpeg",
+        email: "rakshitaudayshetty.sirsi@gmail.cvom",
+        phone: "+91 8310905458",
+        about:
+          "Passionate about building modern web applications and solving real-world problems with clean code",
+        skills: ["HTML", "CSS", "JavaScript", "Java"],
+        experience: [
+          {
+            company: "Pinnacle",
+            role: "Python Developer",
+            year: "2025 - Present",
+            points: [
+              "Built responsive user interfaces with React",
+              "Optimized performance and reduced load times by 30%",
+            ],
+          },
+          {
+            company: "Oasis Infobyte",
+            role: "Java Developer",
+            year: "2025 - Present",
+            points: [
+              "Built responsive user interfaces with React",
+              "Optimized performance and reduced load times by 30%",
+            ],
+          },
+          {
+            company: "Oasis Infobyte",
+            role: "Web Developer",
+            year: "2025 - Present",
+            points: [
+              "Built responsive user interfaces with React",
+              "Optimized performance and reduced load times by 30%",
+            ],
+          },
+        ],
+        education: [
+          {
+            degree: "B.Tech in Information Science",
+            institution: "Vtu University",
+            year: "3rd year",
+            points: ["CGPA: 9/10"],
+          },
+          {
+            degree: "High School",
+            institution: "Marikamba gov. PU college",
+            year: "2018 - 2020",
+            points: ["Percentage: 90%", "Won inter-school coding hackathon"],
+          },
+        ],
+        projects: [
+          {
+            title: "Portfolio system",
+            year: "2025",
+            description:
+              "A personal portfolio built with HTML, CSS, and JavaScript showcasing my work and skills.",
+            link: "https://example.com",
+          }, 
+          {
+            title: "AI based code evaluation system",
+            year: "2023",
+            description:
+              "It's an on going project that focuses on building a system that check the approch and algorithm for problem solving rather than based on the test cases. It focuses on encouraging students  to write code on their own..",
+            link: "https://example.com",
+          }
+        ]
+      };
+ 
+      document.getElementById("header").innerHTML = `
+        <img src="${data.image}" />
+        <h1>${data.name}</h1>
+        <h2>${data.title}</h2>
+        <div class="section-divider"></div>
+      `;
+      
+ 
+      document.getElementById("about").innerHTML = `
+        <h2>About Me</h2>
+        <p>${data.about}</p>
+        <div class="section-divider"></div>
+      `;
+ 
+      document.getElementById("experience").innerHTML = `
+        <h2>Experience</h2>
+        ${data.experience
+          .map(
+            (exp) => `
+          <div>
+            <h3>${exp.role} - ${exp.company}</h3>
+            <span>${exp.year}</span>
+            ${exp.points.map((point) => `<p>${point}</p>`).join("")}
+          </div>
+        `
+          )
+          .join("")}
+          <div class="section-divider"></div>
+      `;
+ 
+      document.getElementById("education").innerHTML = `
+        <h2>Education</h2>
+        ${data.education
+          .map(
+            (edu) => `
+          <div>
+            <h3>${edu.degree} - ${edu.institution}</h3>
+            <span>${edu.year}</span>
+            ${edu.points.map((point) => `<p>${point}</p>`).join("")}
+          </div>
+        `
+          )
+          .join("")}
+          <div class="section-divider"></div>
+      `;
+ 
+      document.getElementById("skills").innerHTML = `
+        <h2>Skills</h2>
+        ${data.skills.map((skill) => `<p>${skill}</p>`).join("")}
+        <div class="section-divider"></div>
+      `;
+ 
+      document.getElementById("projects").innerHTML = `
+        <h2>Projects</h2>
+        ${data.projects
+          .map(
+            (proj) => `
+          <div>
+            <h3>${proj.title} (${proj.year})</h3>
+            <p>${proj.description}</p>
+            <a href="${proj.link}" target="_blank">View Project</a>
+          </div>
+        `
+          )
+          .join("")}
+          <div class="section-divider"></div>
+      `;
+ 
+ 
+      document.getElementById("footer").innerHTML = `
+        <h1>Get in touch!</h1>
+        <p>${data.email}</p>
+        <p>${data.phone}</p>
+        <div class="section-divider"></div>
+      `;
+ 
+ 
+    </script>
+  </body>
+</html>
+ 
+
